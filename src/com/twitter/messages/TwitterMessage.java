@@ -34,7 +34,7 @@ public class TwitterMessage {
 	 *            The user name
 	 */
 	public void setUser(String user) {
-		if (user == null || user == "")
+		if (user == null || user.equals(""))
 			throw new RuntimeException("User name must be enter");
 		this.user = user;
 	}
@@ -45,7 +45,7 @@ public class TwitterMessage {
 	 * @return message The message that is enter by the user
 	 */
 	public String getMessage() {
-		return "message";
+		return message;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class TwitterMessage {
 	 *            User message
 	 */
 	public void setMessage(String message) {
-		if (message == null || this.message.length() > 140)
+		if (message == null || message.length() > 140)
 			throw new RuntimeException("The message must be entered and must have a maximum of 140 characters");
 		this.message = message;
 	}
@@ -64,6 +64,6 @@ public class TwitterMessage {
 	 * Convert the object content to String
 	 */
 	public String toString() {
-		return "USER:" + user + " MESSAGE:" + message;
+		return "USER:" + user + "MESSAGE:" + message;
 	}
 }
