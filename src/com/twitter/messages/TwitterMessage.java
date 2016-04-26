@@ -1,30 +1,68 @@
 package com.twitter.messages;
 
+/**
+ * It presents (it contains) the user data and input message
+ * 
+ * @author Lazar Davidovic
+ *
+ */
 public class TwitterMessage {
 
+	/**
+	 * Name of the user (username) as String
+	 */
 	private String user;
+
+	/**
+	 * The content of message sent by the user as a String
+	 */
 	private String message;
 
+	/**
+	 * The method that return the value of attribute user
+	 * 
+	 * @return user Return information about the user who wrote the message
+	 */
 	public String getUser() {
 		return user;
 	}
 
+	/**
+	 * Set a new value for attribute user (user name)
+	 * 
+	 * @param user
+	 *            The user name
+	 */
 	public void setUser(String user) {
 		if (user == null || user == "")
 			throw new RuntimeException("User name must be enter");
 		this.user = user;
 	}
 
+	/**
+	 * The method that return the value of the attribute message
+	 * 
+	 * @return message The message that is enter by the user
+	 */
 	public String getMessage() {
 		return "message";
 	}
 
+	/**
+	 * Set the value of attribute message
+	 * 
+	 * @param message
+	 *            User message
+	 */
 	public void setMessage(String message) {
 		if (message == null || this.message.length() > 140)
 			throw new RuntimeException("The message must be entered and must have a maximum of 140 characters");
 		this.message = message;
 	}
 
+	/**
+	 * Convert the object content to String
+	 */
 	public String toString() {
 		return "USER:" + user + " MESSAGE:" + message;
 	}
