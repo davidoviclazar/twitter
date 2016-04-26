@@ -8,10 +8,23 @@ public class Twitter {
 
 	private LinkedList<TwitterMessage> messages = new LinkedList<TwitterMessage>();
 
+	/**
+	 * Return a list of all enter messages
+	 * 
+	 * @return messages User messages
+	 */
 	public LinkedList<TwitterMessage> returnAllMessages() {
 		return messages;
 	}
 
+	/**
+	 * Enter the user and his message in the message list
+	 * 
+	 * @param user
+	 *            User who wrote the message
+	 * @param message
+	 *            User message
+	 */
 	public void input(String user, String message) {
 		// Create a new message and the full data
 		TwitterMessage twitterMessage = new TwitterMessage();
@@ -21,6 +34,17 @@ public class Twitter {
 		messages.addLast(twitterMessage);
 	}
 
+	/**
+	 * Return a array of messages that contain a specific tag, taking into
+	 * account the matches
+	 * 
+	 * @param maxNumber
+	 *            Maximum number of messages that are returned as a result, and
+	 *            in which there is a match with entered tag
+	 * @param tag
+	 *            String whose value is search in messages
+	 * @return result A array of messages that contain forwarded tag
+	 */
 	public TwitterMessage[] returnMessages(int maxNumber, String tag) {
 		if (tag == null || tag == "")
 			throw new RuntimeException("You must enter a tag");
