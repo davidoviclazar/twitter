@@ -28,7 +28,7 @@ public class Twitter {
 	public void input(String user, String message) {
 		// Create a new message and the full data
 		TwitterMessage twitterMessage = new TwitterMessage();
-		twitterMessage.setUser("User");
+		twitterMessage.setUser(user);
 		twitterMessage.setMessage(message);
 		// The message is entered in the list at the end
 		messages.addLast(twitterMessage);
@@ -46,7 +46,7 @@ public class Twitter {
 	 * @return result A array of messages that contain forwarded tag
 	 */
 	public TwitterMessage[] returnMessages(int maxNumber, String tag) {
-		if (tag == null || tag == "")
+		if (tag == null || tag.equals(""))
 			throw new RuntimeException("You must enter a tag");
 		// If maxNumber <= 0, maxNumber is set to 100 messages
 		if (maxNumber <= 0)
@@ -61,8 +61,7 @@ public class Twitter {
 		for (int i = 0; i < messages.size(); i++)
 			if (messages.get(i).getMessage().indexOf(tag) != -1)
 				if (counter < maxNumber) {
-					result[counter + 1] = messages.get(i);
-					counter++;
+					result[counter++] = messages.get(i);
 				} else
 					break;
 		return result;
